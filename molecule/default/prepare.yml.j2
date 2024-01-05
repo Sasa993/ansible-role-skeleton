@@ -1,0 +1,22 @@
+---
+# role: {{ role_name }}
+# file: molecule/default/prepare.yml
+
+- name: Prepare
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: true
+      when: ansible_pkg_mgr == "apt"
+
+    - name: Update dnf cache
+      dnf:
+        update_cache: true
+      when: ansible_pkg_mgr == "dnf"
+
+    - name: Update yum cache
+      yum:
+        update_cache: true
+      when: ansible_pkg_mgr == "yum"

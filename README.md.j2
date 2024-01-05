@@ -1,6 +1,6 @@
 # {{ role_name }}
 
-![GitHub](https://img.shields.io/github/license/jam82/{{ role_name }}) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/{{ role_name }}) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/{{ role_name }}) ![Travis (.com) branch](https://img.shields.io/travis/com/jam82/{{ role_name }}/main?label=travis) [![Molecule](https://github.com/jam82/{{ role_name }}/actions/workflows/molecule.yml/badge.svg)](https://github.com/jam82/{{ role_name }}/actions/workflows/molecule.yml)
+![GitHub](https://img.shields.io/github/license/sasa993/{{ role_name }}) ![GitHub last commit](https://img.shields.io/github/last-commit/sasa993/{{ role_name }}) ![GitHub issues](https://img.shields.io/github/issues-raw/sasa993/{{ role_name }}) ![Travis (.com) branch](https://img.shields.io/travis/com/sasa993/{{ role_name }}/main?label=travis) [![Molecule](https://github.com/sasa993/{{ role_name }}/actions/workflows/molecule.yml/badge.svg)](https://github.com/sasa993/{{ role_name }}/actions/workflows/molecule.yml)
 
 **Ansible role for setting up {{ role_name|replace('ansible-role-', '') }}.**
 
@@ -8,18 +8,7 @@
 
 | OS Family | Distribution  | Latest | Supported Version(s) | Comment |
 |-----------|---------------|--------|----------------------|---------|
-| Alpine    | Alpine        | :heavy_check_mark: | 3.12, 3.13 | |
-| Archlinux | Archlinux     | :heavy_check_mark: | - | |
-|           | Manjaro       | :heavy_check_mark: | - | |
-| Debian    | Debian        | :heavy_check_mark: | 10, 11 | |
-|           | Ubuntu        | :heavy_check_mark: | 18.04, 20.04 | |
-| RedHat    | Almalinux     | :heavy_check_mark: | 8 | |
-|           | Amazonlinux   | :x: | - | not tested, image not working |
-|           | Centos        | :heavy_check_mark: | 8 | |
-|           | Fedora        | :heavy_check_mark: | 33, 34, Rawhide | |
-|           | Oraclelinux   | :heavy_check_mark: | 8 | |
-| Suse      | OpenSuse Leap | :heavy_check_mark: | 15.1, 15.2, 15.3 | |
-|           | Tumbleweed    | :heavy_check_mark: | - | |
+| Debian    | Debian        | :heavy_check_mark: | 11, 12 | |
 
 ## Requirements
 
@@ -32,7 +21,7 @@ Variables and defaults for this role.
 ### defaults/main.yml
 
 ```yaml
-{{ role_name | replace('ansible-role-', '') | replace('-','_') }}_role_enabled: false
+{{ role_name }}_enabled: false
 ```
 
 ## Dependencies
@@ -44,25 +33,24 @@ None.
 ```yaml
 ---
 # role: {{ role_name }}
-# play: {{ role_name | replace('ansible-role-', '') | replace('-','_') }}
-# file: {{ role_name | replace('ansible-role-', '') | replace('-','_') }}.yml
+# play: {{ role_name }}
+# file: {{ role_name }}.yml
 
 - hosts: all
   become: true
   gather_facts: true
   vars:
-    {{ role_name | replace('ansible-role-', '') | replace('-','_') }}_role_enabled: true
+    {{ role_name }}_role_enabled: true
   roles:
     - role: {{ role_name }}
 ```
 
 ## License and Author
 
-- Author:: [jam82](https://github.com/jam82/)
-- Copyright:: 2021, [jam82](https://github.com/jam82/)
+- Author:: [Sasa993](https://github.com/sasa993/)
 
 Licensed under [MIT License](https://opensource.org/licenses/MIT).
-See [LICENSE](https://github.com/jam82/{{ role_name }}/blob/master/LICENSE) file in repository.
+See [LICENSE](https://github.com/sasa993/{{ role_name }}/blob/master/LICENSE) file in repository.
 
 ## References
 

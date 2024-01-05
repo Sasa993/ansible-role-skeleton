@@ -1,0 +1,10 @@
+---
+# role: {{ role_name }}
+# file: molecule/default/converge.yml
+
+- name: Converge
+  hosts: all
+  tasks:
+  - name: "Include {{ role_name }}"
+    ansible.builtin.include_role:
+      name: "{{ role_name }}"
